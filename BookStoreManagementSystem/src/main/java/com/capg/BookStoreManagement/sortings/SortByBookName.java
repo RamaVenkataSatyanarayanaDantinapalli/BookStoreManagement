@@ -7,5 +7,4 @@ public class SortByBookName implements Comparator<Book>{
 		// TODO Auto-generated method stub
 		return o1.getTitle().compareToIgnoreCase(o2.getTitle());
 	}
-
 }
