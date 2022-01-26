@@ -3,7 +3,6 @@ package com.capg.BookStoreManagement.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -61,258 +60,15 @@ public class UserDAOImpl implements UserDAO{
 		 }
 		 catch (Exception e) {
 			 System.out.println("exception in sorting");
-			// TODO: handle exception
 		}
 		return null;
 		 
 	 }
-	 
-	 /*public List<Book> getBooksByIsbnDesc()
-	 {
-		 String sqlQuery="Select * from Book order by isbn desc";
-		 List<Book> booksList=new ArrayList<Book>();
-		 try
-		 {
-			 ps=con.prepareStatement(sqlQuery);
-			 ResultSet rs=ps.executeQuery();
-			 while(rs.next())
-			 {
-				 int isbn=rs.getInt("isbn");
-				 String title=rs.getString("title");
-				 String author=rs.getString("author");
-				 int price=rs.getInt("price");
-				 int qty=rs.getInt("qty");
-				 Book bp=new Book(isbn,title,author,price,qty);
-				 booksList.add(bp);
-			 }
-			 return booksList;
-		 }
-		 catch (Exception e) {
-			 System.out.println("exception in sorting");
-			// TODO: handle exception
-		}
-		return null;
-		 
-	 }
-	 
-	 public List<Book> getBooksByPrice()
-	 {
-		 String sqlQuery="Select * from Book order by price";
-		 List<Book> booksList=new ArrayList<Book>();
-		 try
-		 {
-			 ps=con.prepareStatement(sqlQuery);
-			 ResultSet rs=ps.executeQuery();
-			 while(rs.next())
-			 {
-				 long isbn=rs.getLong("isbn");
-				 String title=rs.getString("title");
-				 String author=rs.getString("author");
-				 int price=rs.getInt("price");
-				 int qty=rs.getInt("qty");
-				 Book bp=new Book(isbn,title,author,price,qty);
-				 booksList.add(bp);
-			 }
-			 return booksList;
-		 }
-		 catch (Exception e) {
-			 System.out.println("exception in sorting");
-			// TODO: handle exception
-		}
-		return null;
-		 
-	 }
-	 
-	 public List<Book> getBooksByPriceDesc()
-	 {
-		 String sqlQuery="Select * from Book order by price desc";
-		 List<Book> booksList=new ArrayList<Book>();
-		 try
-		 {
-			 ps=con.prepareStatement(sqlQuery);
-			 ResultSet rs=ps.executeQuery();
-			 while(rs.next())
-			 {
-				 long isbn=rs.getLong("isbn");
-				 String title=rs.getString("title");
-				 String author=rs.getString("author");
-				 int price=rs.getInt("price");
-				 int qty=rs.getInt("qty");
-				 Book bp=new Book(isbn,title,author,price,qty);
-				 booksList.add(bp);
-			 }
-			 return booksList;
-		 }
-		 catch (Exception e) {
-			 System.out.println("exception in sorting");
-			// TODO: handle exception
-		}
-		return null;
-		 
-	 }
-	 
-	public List<Book> getBooksByTitle() {
-		// TODO Auto-generated method stub
-		String sqlQuery="Select * from Book order by title";
-		 List<Book> booksList=new ArrayList<Book>();
-		 try
-		 {
-			 ps=con.prepareStatement(sqlQuery);
-			 ResultSet rs=ps.executeQuery();
-			 while(rs.next())
-			 {
-				 long isbn=rs.getLong("isbn");
-				 String title=rs.getString("title");
-				 String author=rs.getString("author");
-				 int price=rs.getInt("price");
-				 int qty=rs.getInt("qty");
-				 Book bp=new Book(isbn,title,author,price,qty);
-				 booksList.add(bp);
-			 }
-			 return booksList;
-		 }
-		 catch (Exception e) {
-			 System.out.println("exception in sorting");
-			// TODO: handle exception
-		}
-		return null;
-	}
-	public List<Book> getBooksByTitleDesc() {
-		// TODO Auto-generated method stub
-		String sqlQuery="Select * from Book order by title desc";
-		 List<Book> booksList=new ArrayList<Book>();
-		 try
-		 {
-			 ps=con.prepareStatement(sqlQuery);
-			 ResultSet rs=ps.executeQuery();
-			 while(rs.next())
-			 {
-				 long isbn=rs.getLong("isbn");
-				 String title=rs.getString("title");
-				 String author=rs.getString("author");
-				 int price=rs.getInt("price");
-				 int qty=rs.getInt("qty");
-				 Book bp=new Book(isbn,title,author,price,qty);
-				 booksList.add(bp);
-			 }
-			 return booksList;
-		 }
-		 catch (Exception e) {
-			 System.out.println("exception in sorting");
-			// TODO: handle exception
-		}
-		return null;
-	}
-	public List<Book> getBooksByAuthor() {
-		// TODO Auto-generated method stub
-		String sqlQuery="Select * from Book order by author";
-		 List<Book> booksList=new ArrayList<Book>();
-		 try
-		 {
-			 ps=con.prepareStatement(sqlQuery);
-			 ResultSet rs=ps.executeQuery();
-			 while(rs.next())
-			 {
-				 long isbn=rs.getLong("isbn");
-				 String title=rs.getString("title");
-				 String author=rs.getString("author");
-				 int price=rs.getInt("price");
-				 int qty=rs.getInt("qty");
-				 Book bp=new Book(isbn,title,author,price,qty);
-				 booksList.add(bp);
-			 }
-			 return booksList;
-		 }
-		 catch (Exception e) {
-			 System.out.println("exception in sorting");
-			// TODO: handle exception
-		}
-		return null;
-	}
-	public List<Book> getBooksByAuthorDesc() {
-		// TODO Auto-generated method stub
-		String sqlQuery="Select * from Book order by author desc";
-		 List<Book> booksList=new ArrayList<Book>();
-		 try
-		 {
-			 ps=con.prepareStatement(sqlQuery);
-			 ResultSet rs=ps.executeQuery();
-			 while(rs.next())
-			 {
-				 long isbn=rs.getLong("isbn");
-				 String title=rs.getString("title");
-				 String author=rs.getString("author");
-				 int price=rs.getInt("price");
-				 int qty=rs.getInt("qty");
-				 Book bp=new Book(isbn,title,author,price,qty);
-				 booksList.add(bp);
-			 }
-			 return booksList;
-		 }
-		 catch (Exception e) {
-			 System.out.println("exception in sorting");
-			// TODO: handle exception
-		}
-		return null;
-	}
-	public List<Book> getBooksByQuantity() {
-		// TODO Auto-generated method stub
-		String sqlQuery="Select * from Book order by qty";
-		 List<Book> booksList=new ArrayList<Book>();
-		 try
-		 {
-			 ps=con.prepareStatement(sqlQuery);
-			 ResultSet rs=ps.executeQuery();
-			 while(rs.next())
-			 {
-				 long isbn=rs.getLong("isbn");
-				 String title=rs.getString("title");
-				 String author=rs.getString("author");
-				 int price=rs.getInt("price");
-				 int qty=rs.getInt("qty");
-				 Book bp=new Book(isbn,title,author,price,qty);
-				 booksList.add(bp);
-			 }
-			 return booksList;
-		 }
-		 catch (Exception e) {
-			 System.out.println("exception in sorting");
-			// TODO: handle exception
-		}
-		return null;
-	}
-	public List<Book> getBooksByQuantityDesc() {
-		// TODO Auto-generated method stub
-		String sqlQuery="Select * from book order by qty desc";
-		 List<Book> booksList=new ArrayList<Book>();
-		 try
-		 {
-			 ps=con.prepareStatement(sqlQuery);
-			 ResultSet rs=ps.executeQuery();
-			 while(rs.next())
-			 {
-				 long isbn=rs.getLong("isbn");
-				 String title=rs.getString("title");
-				 String author=rs.getString("author");
-				 int price=rs.getInt("price");
-				 int qty=rs.getInt("qty");
-				 Book bp=new Book(isbn,title,author,price,qty);
-				 booksList.add(bp);
-			 }
-			 return booksList;
-		 }
-		 catch (Exception e) {
-			 System.out.println("exception in sorting");
-			// TODO: handle exception
-		}
-		return null;
-	}*/
 	
 	public Book doSearchBook(int Isbn) {
 		 try {
 		 ps=con.prepareStatement("select * from book where isbn=?");
 		 ps.setInt(1,Isbn);
-		 
 		 ResultSet rs = ps.executeQuery(); // DML, i holds the value :- number of rows effected
 			while(rs.next()) {
 				int isbn = rs.getInt("isbn");
@@ -333,7 +89,6 @@ public class UserDAOImpl implements UserDAO{
 	 public Book doSearchBook(String author)
 	 {
 		 try {
-			// List<Book> booksList=new ArrayList<Book>();
 			 ps=con.prepareStatement("select * from book where author=?");
 			 ps.setString(1,author);
 			 
@@ -357,7 +112,6 @@ public class UserDAOImpl implements UserDAO{
 	 public Book searchByBookTitle(String title)
 	 {
 		 try {
-			// List<Book> booksList=new ArrayList<Book>();
 			 ps=con.prepareStatement("select * from book where title=?");
 			 ps.setString(1,title);
 			 
@@ -429,7 +183,7 @@ public class UserDAOImpl implements UserDAO{
 				 ps=con.prepareStatement("select * from bookstoremanagement.order where userId=?");
 				 ps.setInt(1,UserId);
 				 
-				 ResultSet rs = ps.executeQuery(); // DML, i holds the value :- number of rows effected
+				 ResultSet rs = ps.executeQuery();
 					while(rs.next()) {
 						int UserID=rs.getInt("userId");
 						int Isbn = rs.getInt("bookIsbn");
@@ -456,14 +210,13 @@ public class UserDAOImpl implements UserDAO{
 				 ps=con.prepareStatement("select * from bookstoremanagement.cart where userId=?");
 				 ps.setInt(1,UserId);
 				 
-				 ResultSet rs = ps.executeQuery(); // DML, i holds the value :- number of rows effected
+				 ResultSet rs = ps.executeQuery();
 					while(rs.next()) {
 						int UserID=rs.getInt("userId");
 						int Isbn = rs.getInt("bookIsbn");
 						String Title = rs.getString("bookTitle");
 						int qty = rs.getInt("bookQuantity");
 						int TotalPrice=rs.getInt("totalPrice");
-						//int OrderId=rs.getInt("orderId");
 						Cart c=new Cart(UserID,Isbn,Title,qty,TotalPrice);
 						cartList.add(c);
 					}
@@ -515,7 +268,7 @@ public class UserDAOImpl implements UserDAO{
 			ps=con.prepareStatement("select price from book where isbn=?");
 			 ps.setInt(1,isbn);
 			 
-			 ResultSet rs = ps.executeQuery(); // DML, i holds the value :- number of rows effected
+			 ResultSet rs = ps.executeQuery();
 				while(rs.next()) {
 					BookPrice = rs.getInt("price");
 				}
@@ -534,8 +287,7 @@ public class UserDAOImpl implements UserDAO{
 				 int TotalOrderPrice=0;
 			ps=con.prepareStatement("select totalPrice from cart where userId=?");
 			 ps.setInt(1,UserId);
-			 
-			 ResultSet rs = ps.executeQuery(); // DML, i holds the value :- number of rows effected
+			 ResultSet rs = ps.executeQuery();
 				while(rs.next()) {
 					BookPrice = rs.getInt("totalPrice");
 					TotalOrderPrice+=BookPrice;
@@ -554,11 +306,9 @@ public class UserDAOImpl implements UserDAO{
 		  try {
 			 int OrderID=0;
 			ps=con.prepareStatement("select orderId from bookstoremanagement.order");
-			 //ps.setInt(1,userId);
-			 ResultSet rs = ps.executeQuery(); // DML, i holds the value :- number of rows effected
+			 ResultSet rs = ps.executeQuery();
 				while(rs.next()) {
 					OrderID = rs.getInt("orderId");
-					//return OrderID;
 					}
 				return OrderID;
 				
@@ -574,11 +324,9 @@ public class UserDAOImpl implements UserDAO{
 				int TotalBooks=0;
 				 ps=con.prepareStatement("select * from book where isbn=?");
 				 ps.setInt(1,Isbn);
-				 
 				 ResultSet rs = ps.executeQuery(); // DML, i holds the value :- number of rows effected
 					while(rs.next()) {
 						TotalBooks=rs.getInt("qty");	
-						//return BookIsbn;
 						}
 					return TotalBooks;
 					
@@ -592,7 +340,6 @@ public class UserDAOImpl implements UserDAO{
 	  public void doUpdateBooksTotal(int Qty,int Isbn) {
 		  try
 		    {
-		        
 		        ps = con.prepareStatement("update book set qty=? where isbn=?");
 		        ps.setInt(1,Qty);
 		        ps.setInt(2, Isbn);
@@ -615,7 +362,6 @@ public class UserDAOImpl implements UserDAO{
 				 ps=con.prepareStatement("select * from bookstoremanagement.order where userId=? and orderId=?");
 				 ps.setInt(1,userId);
 				 ps.setInt(2,orderId);
-				 
 				 ResultSet rs = ps.executeQuery(); // DML, i holds the value :- number of rows effected
 					while(rs.next()) {
 						OrderQty=rs.getInt("bookQuantity");	
@@ -635,7 +381,6 @@ public class UserDAOImpl implements UserDAO{
 				 ps=con.prepareStatement("select * from bookstoremanagement.order where userId=? and orderId=?");
 				 ps.setInt(1,userId);
 				 ps.setInt(2,orderId);
-				 
 				 ResultSet rs = ps.executeQuery(); // DML, i holds the value :- number of rows effected
 					while(rs.next()) {
 						OrderIsbn=rs.getInt("bookIsbn");	
@@ -677,13 +422,11 @@ public class UserDAOImpl implements UserDAO{
 			 }
 			 catch (Exception e) {
 				 System.out.println("exception in sorting Orders");
-				// TODO: handle exception
 			}
 			return null;
 	  }
 	  
 	  public Integer doCalculateTotalCancelOrderPrice(int userId,int orderId) {
-		  
 		  try {
 			  int BookPrice=0;
 				 int TotalCancelOrderPrice=0;
@@ -691,7 +434,7 @@ public class UserDAOImpl implements UserDAO{
 			 ps.setInt(1,userId);
 			 ps.setInt(2,orderId);
 			 
-			 ResultSet rs = ps.executeQuery(); // DML, i holds the value :- number of rows effected
+			 ResultSet rs = ps.executeQuery();
 				while(rs.next()) {
 					BookPrice = rs.getInt("totalPrice");
 					TotalCancelOrderPrice+=BookPrice;
@@ -705,5 +448,3 @@ public class UserDAOImpl implements UserDAO{
 		  return null;
 		    }
 	  }
-	 
-

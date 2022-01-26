@@ -87,7 +87,7 @@ public class GetOutputs {
 		}
 		System.out.println("------------------------------------------------------------------------------------------------");
 		System.out.format("%10s","Total_Order_Amount");
-		System.out.format("%63s",TotalOrderAmount);
+		System.out.format("%65s",TotalOrderAmount);
 		System.out.println();
 		System.out.println("------------------------------------------------------------------------------------------------");
 	}

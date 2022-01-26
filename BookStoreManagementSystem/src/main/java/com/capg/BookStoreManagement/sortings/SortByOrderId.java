@@ -1,7 +1,6 @@
 package com.capg.BookStoreManagement.sortings;
 
 import java.util.Comparator;
-
 import com.capg.BookStoreManagement.beans.Order;
 
 public class SortByOrderId implements Comparator<Order>{

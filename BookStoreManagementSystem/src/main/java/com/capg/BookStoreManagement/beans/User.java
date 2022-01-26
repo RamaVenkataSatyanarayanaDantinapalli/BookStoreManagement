@@ -8,12 +8,8 @@ public class User implements Comparable<User>{
 	private String userAddress;
 	private String userPhone;
 	
-	/*public User() {
-		super();
-	}*/
-	
 	public User(int userId,String userName,String userPwd,String userEmail,String userAddress,String userPhone) {
-		//super();
+		
 		this.userId = userId;
 		this.userName = userName;
 		this.userPwd = userPwd;
@@ -22,7 +18,6 @@ public class User implements Comparable<User>{
 		this.userPhone = userPhone;
 	}
 	
-
 	public int getUserId() {
 		return userId;
 	}
@@ -52,11 +47,4 @@ public int compareTo(User u) {
 		
 		return this.userId-u.userId;
 	}
-	/*@Override
-	public String toString() {
-		return "User [userId=" + userId + ", userName=" + userName + ",userEmail=" + userEmail
-				+ ", userAddress=" + userAddress + ", userPhone=" + userPhone + "]";
-	}*/
-	
-	
 }

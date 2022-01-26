@@ -107,7 +107,7 @@ public class BookStoreManagementApp {
 						status=usi.doAddUser(u);
 						if(status) {
 							System.out.println("User Registerd Successfully");
-							app.doUserLogin(UserId,UserPwd);
+							LoginPage();
 						}
 						else {
 							System.out.println("Sorry User Not Registered Successfully");
@@ -197,7 +197,7 @@ public class BookStoreManagementApp {
 				System.out.println("enter userid to modify user");
 				int modifyUserId=sc.nextInt();
 				System.out.println("enter the userName");
-				String modifyUserName=scr.nextLine();
+				String modifyUserName=s.nextLine();
 				System.out.println("enter the password");
 				String modifyUserPwd=scr.nextLine();
 				System.out.println("enter the user Email");
@@ -205,7 +205,7 @@ public class BookStoreManagementApp {
 				System.out.println("enter the user Address");
 				String modifyUserAddress=scr.nextLine();
 				System.out.println("enter the phonenumber");
-				String modifyUserPhone=sc.nextLine();
+				String modifyUserPhone=scr.nextLine();
 				isEmailValid=ve.doValidateEmail(modifyUserEmail);
 				isPhoneValid=vp.doValidatePhone(modifyUserPhone);
 				if(isEmailValid) {
@@ -219,6 +219,7 @@ public class BookStoreManagementApp {
 				}
 				else {
 					System.out.println("-----------------------------------------");
+					System.out.println("User Not Found!");
 					System.out.println("Sorry User Not Modified Successfully");
 					System.out.println("-----------------------------------------");
 				}
@@ -242,6 +243,7 @@ public class BookStoreManagementApp {
 				}
 				else {
 					System.out.println("-----------------------------------------");
+					System.out.println("User Not Found!");
 					System.out.println("Sorry User Not Deleted Successfully");
 					System.out.println("-----------------------------------------");
 				}
@@ -275,7 +277,7 @@ public class BookStoreManagementApp {
 				    else
 				    {
 				    	System.out.println("-----------------------------------------");
-				    	System.out.println("user not found");
+				    	System.out.println("Sorry User Not Found");
 				    	System.out.println("-----------------------------------------");
 				    }
 				   break;
@@ -459,31 +461,31 @@ public class BookStoreManagementApp {
 			 switch(ch4) {
 			 case 1:
 				 
-				 System.out.println("Sort Book by Isbn");
+				 System.out.println("Displaying Books by Isbn");
 				 SortByBookIsbn IsbnCompare = new SortByBookIsbn();
 				 Collections.sort(books, IsbnCompare);
 				 go.PrintBookDetaisOfSort(books);
 					break;
 			 case 2:
-				 System.out.println("Sort Book by Title");
+				 System.out.println("Displaying Books by Title");
 				 SortByBookTitle TitleCompare = new SortByBookTitle();
 				 Collections.sort(books, TitleCompare);
 				 go.PrintBookDetaisOfSort(books);
 					break;
 			 case 3:
-				 System.out.println("Sort Book by Author");
+				 System.out.println("Displaying Books by Author");
 				 SortByBookAuthor AuthorCompare = new SortByBookAuthor();
 				 Collections.sort(books, AuthorCompare);
 				 go.PrintBookDetaisOfSort(books);
 					break;
 			 case 4:
-				 System.out.println("Sort Book by Price");
+				 System.out.println("Displaying Books by Price");
 				    SortByBookPrice priceCompare = new SortByBookPrice();
 				    Collections.sort(books, priceCompare);
 				 go.PrintBookDetaisOfSort(books);
 					break;
 			 case 5:
-				 System.out.println("Sort Book by Quantity");
+				 System.out.println("Displaying Books by Quantity");
 				    SortByBookQuantity qtyCompare = new SortByBookQuantity();
 				    Collections.sort(books, qtyCompare);
 				 go.PrintBookDetaisOfSort(books);
@@ -513,20 +515,20 @@ public class BookStoreManagementApp {
 			 List<Order> orders=asi.getOrders();
 			 switch(ch4) {
 			 case 1:
-				 System.out.println("Sorted Order by UserId");
+				 System.out.println("Displaying Orders by UserId");
 				    SortOrderByUserId userIdCompare = new SortOrderByUserId();
 				    Collections.sort(orders, userIdCompare);
 				 go.PrintOrderDetaisOfSort(orders);
 					break;
 			 case 2:
-				 System.out.println("Sorted Order by OrderId");
+				 System.out.println("Displaying Order by OrderId");
 				    SortByOrderId orderIdCompare = new SortByOrderId();
 				    Collections.sort(orders, orderIdCompare);
 				 go.PrintOrderDetaisOfSort(orders);
 					break;
 		
 			 case 3:
-				 System.out.println("Sorted Order by OrderDate");
+				 System.out.println("Displaying Order by OrderDate");
 				    SortByOrderDate orderDateCompare = new SortByOrderDate();
 				    Collections.sort(orders, orderDateCompare);
 				 go.PrintOrderDetaisOfSort(orders);
@@ -573,8 +575,8 @@ public class BookStoreManagementApp {
 				    }
 				   break;
 			 case 3://search Order by OrderDate
-				    System.out.println("enter the Order Date");
-				    String OrderDate=scr.nextLine();
+				    System.out.println("enter the Order Date(DD/MM/YYYY)");
+				    String OrderDate=s.nextLine();
 				    List<Order> OrderStatus2 = asi.doSearchOrderByOrderDate(OrderDate);
 				    if(OrderStatus2.size()>0) {
 				    	go.PrintOrderDetaisOfSort(OrderStatus2);
@@ -620,6 +622,7 @@ public class BookStoreManagementApp {
 		}
     	
     }
+	
 	public void doUserLogin(int userId,String password) throws InvalidBookException, InvalidOrderException, InvalidUserException, InvalidAdminException, InvalidCartException
 	 {
 		 boolean status=vul.doValidateUser(userId, password);
@@ -650,31 +653,31 @@ public class BookStoreManagementApp {
 				 switch(ch4) {
 				 case 1:
 					 
-					 System.out.println("Sort Book by Isbn");
+					 System.out.println("Displaying Books by Isbn");
 					 SortByBookIsbn IsbnCompare = new SortByBookIsbn();
 					 Collections.sort(books, IsbnCompare);
 					 go.PrintBookDetaisOfSort(books);
 						break;
 				 case 2:
-					 System.out.println("Sort Book by Title");
+					 System.out.println("Displaying Books by Title");
 					 SortByBookTitle TitleCompare = new SortByBookTitle();
 					 Collections.sort(books, TitleCompare);
 					 go.PrintBookDetaisOfSort(books);
 						break;
 				 case 3:
-					 System.out.println("Sort Book by Author");
+					 System.out.println("Displaying Books by Author");
 					 SortByBookAuthor AuthorCompare = new SortByBookAuthor();
 					 Collections.sort(books, AuthorCompare);
 					 go.PrintBookDetaisOfSort(books);
 						break;
 				 case 4:
-					 System.out.println("Sort Book by Price");
+					 System.out.println("Displaying Books by Price");
 					    SortByBookPrice priceCompare = new SortByBookPrice();
 					    Collections.sort(books, priceCompare);
 					 go.PrintBookDetaisOfSort(books);
 						break;
 				 case 5:
-					 System.out.println("Sort Book by Quantity");
+					 System.out.println("Displaying Books by Quantity");
 					    SortByBookQuantity qtyCompare = new SortByBookQuantity();
 					    Collections.sort(books, qtyCompare);
 					 go.PrintBookDetaisOfSort(books);
@@ -699,7 +702,9 @@ public class BookStoreManagementApp {
 							go.PrintBookDetaisOfSearch(status2);
 						}
 						else {
+							System.out.println("-----------------------------------------");
 							System.out.println("Sorry Book Not Found");
+							System.out.println("-----------------------------------------");
 						}
 						break;
 				 case 2://search by author name
@@ -759,7 +764,7 @@ public class BookStoreManagementApp {
 				 }
 				 else {
 					 System.out.println("-----------------------------------------");
-					 System.out.println("Insufficient Book");
+					 System.out.println("Insufficient Book OR Enter valid Isbn");
 					 System.out.println("Only "+TotalBooks+" available in the Store");
 					 System.out.println("-----------------------------------------");
 				 }
@@ -818,8 +823,7 @@ public class BookStoreManagementApp {
 						System.out.println("-----------------------------------------");
 						System.out.println("Cart is Empty!\nPlease add Books to the Cart");
 						System.out.println("-----------------------------------------");
-					}
-						
+					}	
 				 break;
 			 case 6: //View Orders
 						List<Order> orders=usi.viewOrdersByUseId(userId);
@@ -842,7 +846,6 @@ public class BookStoreManagementApp {
 						System.out.println("Sorry Cart Empty Not Successfully\nCart is already Empty!");
 						System.out.println("-----------------------------------------");
 					}
-					
 				 break;
 			 case 8: //Cancel Order
 				    System.out.println("enter the orderId to Cancel Order");
@@ -870,8 +873,6 @@ public class BookStoreManagementApp {
 						System.out.println("Please Enter Valid OrderID!");
 						System.out.println("-----------------------------------------");
 					}
-					
-					
 					break;
 			 case 0:
 				 System.out.println("-----------------------------------------");
