@@ -25,12 +25,12 @@ public class UserServiceImpl implements UserService{
 		boolean isUserModified=ad.doRegisterUser(user);
 		return isUserModified;
 		}
-	public List<Book> getBooksByIsbn() throws InvalidBookException {
+	public List<Book> getBooks() throws InvalidBookException {
 		// TODO Auto-generated method stub
-		List<Book> allBooks=ad.getBooksByIsbn();
+		List<Book> allBooks=ad.getBooks();
 		return allBooks;
 	}
-	public List<Book> getBooksByIsbnDesc() throws InvalidBookException {
+	/*public List<Book> getBooksByIsbnDesc() throws InvalidBookException {
 		// TODO Auto-generated method stub
 		List<Book> allBooks=ad.getBooksByIsbnDesc();
 		return allBooks;
@@ -74,7 +74,7 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		List<Book> allBooks=ad.getBooksByQuantityDesc();
 		return allBooks;
-	}
+	}*/
 	
 	public Book doSearchBook(int Isbn) throws InvalidBookException{
 		Book isBookSearch=ad.doSearchBook(Isbn);

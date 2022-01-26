@@ -10,8 +10,8 @@ import com.capg.BookStoreManagement.beans.User;
 public interface UserDAO {
 	
 	//public boolean doRegisterUser(User user);
-	public List<Book> getBooksByIsbn();
-    public List<Book> getBooksByIsbnDesc();
+	public List<Book> getBooks();
+    /*public List<Book> getBooksByIsbnDesc();
     public List<Book> getBooksByTitle();
     public List<Book> getBooksByTitleDesc();
     public List<Book> getBooksByAuthor();
@@ -19,7 +19,7 @@ public interface UserDAO {
     public List<Book> getBooksByPrice();
     public List<Book> getBooksByPriceDesc();
     public List<Book> getBooksByQuantity();
-    public List<Book> getBooksByQuantityDesc();
+    public List<Book> getBooksByQuantityDesc();*/
     
     public Book doSearchBook(int isbn);
     public Book searchByBookTitle(String title);

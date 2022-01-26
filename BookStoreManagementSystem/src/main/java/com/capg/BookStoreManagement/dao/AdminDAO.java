@@ -20,13 +20,13 @@ public interface AdminDAO {
     public Book doSearchBook(int isbn);
     public Book searchByBookTitle(String title);
     public Book doSearchBook(String author);
-    public List<User> getUsersByUserId();
-    public List<User> getUsersByUserIdDesc();
+    public List<User> getUsers();
+    /*public List<User> getUsersByUserIdDesc();
     public List<User> getUsersByUserName();
-    public List<User> getUsersByUserNameDesc();
+    public List<User> getUsersByUserNameDesc();*/
     public List<User> getUsersByRange(int userId1,int userId2);
-    public List<Book> getBooksByIsbn();
-    public List<Book> getBooksByIsbnDesc();
+    public List<Book> getBooks();
+    /*public List<Book> getBooksByIsbnDesc();
     public List<Book> getBooksByTitle();
     public List<Book> getBooksByTitleDesc();
     public List<Book> getBooksByAuthor();
@@ -34,14 +34,14 @@ public interface AdminDAO {
     public List<Book> getBooksByPrice();
     public List<Book> getBooksByPriceDesc();
     public List<Book> getBooksByQuantity();
-    public List<Book> getBooksByQuantityDesc();
+    public List<Book> getBooksByQuantityDesc();*/
     
-    public List<Order> getOrdersByOrderId();
-    public List<Order> getOrdersByOrderIdDesc();
+    public List<Order> getOrders();
+   /* public List<Order> getOrdersByOrderIdDesc();
     public List<Order> getOrdersByUserId();
     public List<Order> getOrdersByUserIdDesc();
     public List<Order> getOrdersByOrderDate();
-    public List<Order> getOrdersByOrderDateDesc();
+    public List<Order> getOrdersByOrderDateDesc();*/
     public List<Order> doSearchOrderByOrderDate(String orderDate);
     public List<Order> doSearchOrderByOrderId(int orderId);
     public List<Order> doSearchOrderByUserId(int userId);

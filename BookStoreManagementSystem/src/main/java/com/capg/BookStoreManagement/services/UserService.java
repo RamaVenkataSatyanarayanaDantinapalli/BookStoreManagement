@@ -12,8 +12,8 @@ import com.capg.BookStoreManagement.exception.InvalidUserException;
 
 public interface UserService {
 	//public boolean doValidateUser(int userId,String password) throws InvalidUserException;
-	public List<Book> getBooksByIsbn() throws InvalidBookException;
-    public List<Book> getBooksByIsbnDesc() throws InvalidBookException;
+	public List<Book> getBooks() throws InvalidBookException;
+    /*public List<Book> getBooksByIsbnDesc() throws InvalidBookException;
     public List<Book> getBooksByTitle() throws InvalidBookException;
     public List<Book> getBooksByTitleDesc() throws InvalidBookException;
     public List<Book> getBooksByAuthor() throws InvalidBookException;
@@ -21,7 +21,7 @@ public interface UserService {
     public List<Book> getBooksByPrice() throws InvalidBookException;
     public List<Book> getBooksByPriceDesc() throws InvalidBookException;
     public List<Book> getBooksByQuantity() throws InvalidBookException;
-    public List<Book> getBooksByQuantityDesc() throws InvalidBookException;
+    public List<Book> getBooksByQuantityDesc() throws InvalidBookException;*/
     
     public Book doSearchBook(int isbn) throws InvalidBookException;
     public Book searchByBookTitle(String title) throws InvalidBookException;

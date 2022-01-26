@@ -27,14 +27,14 @@ public interface AdminService {
     public Book searchByBookTitle(String title) throws InvalidBookException;
     public Book doSearchBook(String author) throws InvalidBookException;
     
-    public List<User> getUsersByUserId() throws InvalidUserException;
-    public List<User> getUsersByUserIdDesc() throws InvalidUserException;
+    public List<User> getUsers() throws InvalidUserException;
+   /* public List<User> getUsersByUserIdDesc() throws InvalidUserException;
     public List<User> getUsersByUserName() throws InvalidUserException;
-    public List<User> getUsersByUserNameDesc() throws InvalidUserException;
+    public List<User> getUsersByUserNameDesc() throws InvalidUserException;*/
     public List<User> getUsersByRange(int userId1,int userId2) throws InvalidUserException;
     
-    public List<Book> getBooksByIsbn() throws InvalidBookException;
-    public List<Book> getBooksByIsbnDesc() throws InvalidBookException;
+    public List<Book> getBooks() throws InvalidBookException;
+   /* public List<Book> getBooksByIsbnDesc() throws InvalidBookException;
     public List<Book> getBooksByTitle() throws InvalidBookException;
     public List<Book> getBooksByTitleDesc() throws InvalidBookException;
     public List<Book> getBooksByAuthor() throws InvalidBookException;
@@ -42,14 +42,14 @@ public interface AdminService {
     public List<Book> getBooksByPrice() throws InvalidBookException;
     public List<Book> getBooksByPriceDesc() throws InvalidBookException;
     public List<Book> getBooksByQuantity() throws InvalidBookException;
-    public List<Book> getBooksByQuantityDesc() throws InvalidBookException;
+    public List<Book> getBooksByQuantityDesc() throws InvalidBookException;*/
     
-    public List<Order> getOrdersByOrderId() throws InvalidOrderException;
-    public List<Order> getOrdersByOrderIdDesc() throws InvalidOrderException;
+    public List<Order> getOrders() throws InvalidOrderException;
+   /* public List<Order> getOrdersByOrderIdDesc() throws InvalidOrderException;
     public List<Order> getOrdersByUserId() throws InvalidOrderException;
     public List<Order> getOrdersByUserIdDesc() throws InvalidOrderException;
     public List<Order> getOrdersByOrderDate() throws InvalidOrderException;
-    public List<Order> getOrdersByOrderDateDesc() throws InvalidOrderException;
+    public List<Order> getOrdersByOrderDateDesc() throws InvalidOrderException;*/
     public  List<Order> doSearchOrderByOrderDate(String orderDate) throws InvalidOrderException;
     public List<Order> doSearchOrderByOrderId(int orderId) throws InvalidOrderException;
     public List<Order> doSearchOrderByUserId(int userId) throws InvalidOrderException;

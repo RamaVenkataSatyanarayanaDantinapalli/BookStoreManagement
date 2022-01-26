@@ -1,6 +1,6 @@
 package com.capg.BookStoreManagement.beans;
 
-public class User {
+public class User implements Comparable<User>{
 	private int userId;
 	private String userName;
 	private String userPwd;
@@ -8,12 +8,12 @@ public class User {
 	private String userAddress;
 	private String userPhone;
 	
-	public User() {
+	/*public User() {
 		super();
-	}
+	}*/
 	
 	public User(int userId,String userName,String userPwd,String userEmail,String userAddress,String userPhone) {
-		super();
+		//super();
 		this.userId = userId;
 		this.userName = userName;
 		this.userPwd = userPwd;
@@ -26,45 +26,37 @@ public class User {
 	public int getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+	
 	public String getUserName() {
 		return userName;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+	
 	public String getUserPwd() {
 		return userPwd;
 	}
-	public void setUserPwd(String userPwd) {
-		this.userPwd = userPwd;
-	}
+	
 	public String getUserEmail() {
 		return userEmail;
 	}
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
-	}
+	
 	public String getUserAddress() {
 		return userAddress;
 	}
-	public void setUserAddress(String userAddress) {
-		this.userAddress = userAddress;
-	}
+	
 	public String getUserPhone() {
 		return userPhone;
 	}
-	public void setUserPhone(String userPhone) {
-		this.userPhone = userPhone;
+	
+public int compareTo(User u) {
+		
+		
+		return this.userId-u.userId;
 	}
-
-	@Override
+	/*@Override
 	public String toString() {
 		return "User [userId=" + userId + ", userName=" + userName + ",userEmail=" + userEmail
 				+ ", userAddress=" + userAddress + ", userPhone=" + userPhone + "]";
-	}
+	}*/
 	
 	
 }

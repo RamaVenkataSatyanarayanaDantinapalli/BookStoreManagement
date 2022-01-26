@@ -262,10 +262,10 @@ public class AdminDAOImpl implements AdminDAO{
 				 return null;
 	 }
 	 
-	 public List<User> getUsersByUserId()
+	 public List<User> getUsers()
 	 {
-		 String sqlQuery="Select * from User order by userId";
-		 List<User> booksList=new ArrayList<User>();
+		 String sqlQuery="Select * from user";
+		 List<User> usersList=new ArrayList<User>();
 		 try
 		 {
 			 ps=con.prepareStatement(sqlQuery);
@@ -279,19 +279,19 @@ public class AdminDAOImpl implements AdminDAO{
 				 String UserAddress=rs.getString("userAddress");
 				 String UserPhone=rs.getString("userPhone");
 				 User us=new User(UserId,UserName,UserPwd,UserEmail,UserAddress,UserPhone);
-				 booksList.add(us);
+				 usersList.add(us);
 			 }
-			 return booksList;
+			 return usersList;
 		 }
 		 catch (Exception e) {
-			 System.out.println("exception in sorting");
+			 System.out.println("exception in Getting Users");
 			// TODO: handle exception
 		}
 		return null;
 		 
 	 }
 	 
-	 public List<User> getUsersByUserIdDesc()
+	 /*public List<User> getUsersByUserIdDesc()
 	 {
 		 String sqlQuery="Select * from User order by userId desc";
 		 List<User> booksList=new ArrayList<User>();
@@ -376,7 +376,7 @@ public class AdminDAOImpl implements AdminDAO{
 		}
 		return null;
 		 
-	 }
+	 }*/
 	 
 	 public List<User> getUsersByRange(int userId1, int userId2)
 	 {
@@ -409,7 +409,7 @@ public class AdminDAOImpl implements AdminDAO{
 		 return null;
 	 }
 	// public List<ArrayList<Object>> getBooks()
-	 public List<Book> getBooksByIsbn()
+	 public List<Book> getBooks()
 	 {
 		 String sqlQuery="Select * from Book order by isbn";
 		 List<Book> booksList=new ArrayList<Book>();
@@ -419,7 +419,7 @@ public class AdminDAOImpl implements AdminDAO{
 			 ResultSet rs=ps.executeQuery();
 			 while(rs.next())
 			 {
-				 long isbn=rs.getLong("isbn");
+				 int isbn=rs.getInt("isbn");
 				 String title=rs.getString("title");
 				 String author=rs.getString("author");
 				 int price=rs.getInt("price");
@@ -437,7 +437,7 @@ public class AdminDAOImpl implements AdminDAO{
 		 
 	 }
 	 
-	 public List<Book> getBooksByIsbnDesc()
+	/* public List<Book> getBooksByIsbnDesc()
 	 {
 		 String sqlQuery="Select * from Book order by isbn desc";
 		 List<Book> booksList=new ArrayList<Book>();
@@ -447,7 +447,7 @@ public class AdminDAOImpl implements AdminDAO{
 			 ResultSet rs=ps.executeQuery();
 			 while(rs.next())
 			 {
-				 long isbn=rs.getLong("isbn");
+				 int isbn=rs.getInt("isbn");
 				 String title=rs.getString("title");
 				 String author=rs.getString("author");
 				 int price=rs.getInt("price");
@@ -475,7 +475,7 @@ public class AdminDAOImpl implements AdminDAO{
 			 ResultSet rs=ps.executeQuery();
 			 while(rs.next())
 			 {
-				 long isbn=rs.getLong("isbn");
+				 int isbn=rs.getInt("isbn");
 				 String title=rs.getString("title");
 				 String author=rs.getString("author");
 				 int price=rs.getInt("price");
@@ -503,7 +503,7 @@ public class AdminDAOImpl implements AdminDAO{
 			 ResultSet rs=ps.executeQuery();
 			 while(rs.next())
 			 {
-				 long isbn=rs.getLong("isbn");
+				 int isbn=rs.getInt("isbn");
 				 String title=rs.getString("title");
 				 String author=rs.getString("author");
 				 int price=rs.getInt("price");
@@ -531,7 +531,7 @@ public class AdminDAOImpl implements AdminDAO{
 			 ResultSet rs=ps.executeQuery();
 			 while(rs.next())
 			 {
-				 long isbn=rs.getLong("isbn");
+				 int isbn=rs.getInt("isbn");
 				 String title=rs.getString("title");
 				 String author=rs.getString("author");
 				 int price=rs.getInt("price");
@@ -557,7 +557,7 @@ public class AdminDAOImpl implements AdminDAO{
 			 ResultSet rs=ps.executeQuery();
 			 while(rs.next())
 			 {
-				 long isbn=rs.getLong("isbn");
+				 int isbn=rs.getInt("isbn");
 				 String title=rs.getString("title");
 				 String author=rs.getString("author");
 				 int price=rs.getInt("price");
@@ -583,7 +583,7 @@ public class AdminDAOImpl implements AdminDAO{
 			 ResultSet rs=ps.executeQuery();
 			 while(rs.next())
 			 {
-				 long isbn=rs.getLong("isbn");
+				 int isbn=rs.getInt("isbn");
 				 String title=rs.getString("title");
 				 String author=rs.getString("author");
 				 int price=rs.getInt("price");
@@ -609,7 +609,7 @@ public class AdminDAOImpl implements AdminDAO{
 			 ResultSet rs=ps.executeQuery();
 			 while(rs.next())
 			 {
-				 long isbn=rs.getLong("isbn");
+				 int isbn=rs.getInt("isbn");
 				 String title=rs.getString("title");
 				 String author=rs.getString("author");
 				 int price=rs.getInt("price");
@@ -635,7 +635,7 @@ public class AdminDAOImpl implements AdminDAO{
 			 ResultSet rs=ps.executeQuery();
 			 while(rs.next())
 			 {
-				 long isbn=rs.getLong("isbn");
+				 int isbn=rs.getInt("isbn");
 				 String title=rs.getString("title");
 				 String author=rs.getString("author");
 				 int price=rs.getInt("price");
@@ -661,7 +661,7 @@ public class AdminDAOImpl implements AdminDAO{
 			 ResultSet rs=ps.executeQuery();
 			 while(rs.next())
 			 {
-				 long isbn=rs.getLong("isbn");
+				 int isbn=rs.getInt("isbn");
 				 String title=rs.getString("title");
 				 String author=rs.getString("author");
 				 int price=rs.getInt("price");
@@ -676,9 +676,9 @@ public class AdminDAOImpl implements AdminDAO{
 			// TODO: handle exception
 		}
 		return null;
-	}
+	}*/
 	
-	public List<Order> getOrdersByOrderId(){
+	public List<Order> getOrders(){
 		// TODO Auto-generated method stub
 		String sqlQuery="Select * from bookstoremanagement.order order by orderId";
 		 List<Order> ordersList=new ArrayList<Order>();
@@ -713,7 +713,7 @@ public class AdminDAOImpl implements AdminDAO{
 		 return orders;
 	    }*/
 	 
-	public List<Order> getOrdersByOrderIdDesc(){
+	/*public List<Order> getOrdersByOrderIdDesc(){
 		// TODO Auto-generated method stub
 		String sqlQuery="Select * from bookstoremanagement.order order by orderId desc";
 		 List<Order> ordersList=new ArrayList<Order>();
@@ -855,7 +855,7 @@ public class AdminDAOImpl implements AdminDAO{
 			// TODO: handle exception
 		}
 		return null;
-	}
+	}*/
 	
 	 public List<Order> doSearchOrderByUserId(int userId)
 	 {

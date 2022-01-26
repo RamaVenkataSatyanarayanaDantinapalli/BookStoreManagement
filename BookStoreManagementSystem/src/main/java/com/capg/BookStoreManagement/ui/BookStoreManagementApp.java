@@ -1,5 +1,6 @@
 package com.capg.BookStoreManagement.ui;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import com.capg.BookStoreManagement.beans.Book;
@@ -15,6 +16,7 @@ import com.capg.BookStoreManagement.exception.InvalidUserException;
 import com.capg.BookStoreManagement.services.AdminServiceImpl;
 import com.capg.BookStoreManagement.validations.*;
 import com.capg.BookStoreManagement.services.UserServiceImpl;
+import com.capg.BookStoreManagement.sortings.*;
 public class BookStoreManagementApp {
 	Scanner sc=new Scanner(System.in);
 	static Scanner scr=new Scanner(System.in);
@@ -283,32 +285,30 @@ public class BookStoreManagementApp {
 			 
 			break;
 		 case 5:
-			 System.out.println("1. Display Users By UserId in Ascending Order");
-			 System.out.println("2. Display Users By UserId in Descending Order");
-			 System.out.println("3. Display Users By UserName in Ascending Order");
-			 System.out.println("4. Display Users By UserName in Descending Order");
-			 System.out.println("5. Display Users By Range");
+			 System.out.println("1. Display Users By UserId");
+			 System.out.println("2. Display Users By UserName");
+			 System.out.println("3. Display Users By Range");
 			 System.out.println("Enter your Choice:");
 			 int ch5=sc.nextInt();
 			 switch(ch5) {
 			 
 			 case 1:
-				 List<User> users1=asi.getUsersByUserId();
+				 List<User> users1=asi.getUsers();
+				 System.out.println("Sorted by userId");
+				    SortByUserId userIdCompare = new SortByUserId();
+				    Collections.sort(users1, userIdCompare);
+					
 				 go.PrintUserDetaisOfSort(users1);
 					break;
 			 case 2:
-				 List<User> users2=asi.getUsersByUserIdDesc();
+				 List<User> users2=asi.getUsers();
+				 System.out.println("Sorted by userName");
+				    SortByUserName userNameCompare = new SortByUserName();
+				    Collections.sort(users2, userNameCompare);
 				 go.PrintUserDetaisOfSort(users2);
 				 break;
+	
 			 case 3:
-				 List<User> users3=asi.getUsersByUserName();
-				 go.PrintUserDetaisOfSort(users3);
-					break;
-			 case 4:
-				 List<User> users4=asi.getUsersByUserNameDesc();
-				 go.PrintUserDetaisOfSort(users4);
-					break;
-			 case 5:
 				 System.out.println("enter the userId1");
 					int userId1=sc.nextInt();
 					System.out.println("enter the userId2");
@@ -448,59 +448,47 @@ public class BookStoreManagementApp {
 			 }
 			 break;
 		 case 5: //Get Books By Sorting
-			 System.out.println("1. Display Books By Isbn in Ascending Order");
-			 System.out.println("2. Display Books By Isbn in Descending Order");
-			 System.out.println("3. Display Books By Title in Ascending Order");
-			 System.out.println("4. Display Books By Title in Descending Order");
-			 System.out.println("5. Display Books By Author in Ascending Order");
-			 System.out.println("6. Display Books By Author in Descending Order");
-			 System.out.println("7. Display Books By Price in Ascending Order");
-			 System.out.println("8. Display Books By Price in Descending Order");
-			 System.out.println("9. Display Books By Quantity in Ascending Order");
-			 System.out.println("10. Display Books By Quantity in Descencing Order");
+			 System.out.println("1. Display Books By Isbn");
+			 System.out.println("2. Display Books By Title");
+			 System.out.println("3. Display Books By Author");
+			 System.out.println("4. Display Books By Price");
+			 System.out.println("5. Display Books By Quantity");
 			 System.out.println("Enter your Choice:");
 			 int ch4=sc.nextInt();
+			 List<Book> books=asi.getBooks();
 			 switch(ch4) {
 			 case 1:
-				 List<Book> books1=asi.getBooksByIsbn();
-				 go.PrintBookDetaisOfSort(books1);
+				 
+				 System.out.println("Sort Book by Isbn");
+				 SortByBookIsbn IsbnCompare = new SortByBookIsbn();
+				 Collections.sort(books, IsbnCompare);
+				 go.PrintBookDetaisOfSort(books);
 					break;
 			 case 2:
-				 List<Book> books2=asi.getBooksByIsbnDesc();
-				 go.PrintBookDetaisOfSort(books2);
+				 System.out.println("Sort Book by Title");
+				 SortByBookTitle TitleCompare = new SortByBookTitle();
+				 Collections.sort(books, TitleCompare);
+				 go.PrintBookDetaisOfSort(books);
 					break;
 			 case 3:
-				 List<Book> books3=asi.getBooksByTitle();
-				 go.PrintBookDetaisOfSort(books3);
+				 System.out.println("Sort Book by Author");
+				 SortByBookAuthor AuthorCompare = new SortByBookAuthor();
+				 Collections.sort(books, AuthorCompare);
+				 go.PrintBookDetaisOfSort(books);
 					break;
 			 case 4:
-				 List<Book> books4=asi.getBooksByTitleDesc();
-				 go.PrintBookDetaisOfSort(books4);
+				 System.out.println("Sort Book by Price");
+				    SortByBookPrice priceCompare = new SortByBookPrice();
+				    Collections.sort(books, priceCompare);
+				 go.PrintBookDetaisOfSort(books);
 					break;
 			 case 5:
-				 List<Book> books5=asi.getBooksByAuthor();
-				 go.PrintBookDetaisOfSort(books5);
+				 System.out.println("Sort Book by Quantity");
+				    SortByBookQuantity qtyCompare = new SortByBookQuantity();
+				    Collections.sort(books, qtyCompare);
+				 go.PrintBookDetaisOfSort(books);
 					break;
-			 case 6:
-				 List<Book> books6=asi.getBooksByAuthorDesc();
-				 go.PrintBookDetaisOfSort(books6);
-					break;
-			 case 7:
-				 List<Book> books7=asi.getBooksByPrice();
-				 go.PrintBookDetaisOfSort(books7);
-					break;
-			 case 8:
-				 List<Book> books8=asi.getBooksByPriceDesc();
-				 go.PrintBookDetaisOfSort(books8);
-					break;
-			 case 9:
-				 List<Book> books9=asi.getBooksByQuantity();
-				 go.PrintBookDetaisOfSort(books9);
-					break;
-			 case 10:
-				 List<Book> books10=asi.getBooksByQuantityDesc();
-				 go.PrintBookDetaisOfSort(books10);
-					break;
+			 
 			 default:
 					break;
 			 }
@@ -518,37 +506,30 @@ public class BookStoreManagementApp {
 		 int ch3=sc.nextInt();
 		 switch(ch3) {
 		 case 1:
-			 System.out.println("1. Display Orders by UserID in Ascending Order");
-			 System.out.println("2. Display Orders by UserID in Descending Order");
-			 System.out.println("3. Display Orders by OrderID in Ascending Order");
-			 System.out.println("4. Display Orders by OrderID in Descending Order");
-			 System.out.println("5. Display Orders by OrderDate in Ascending Order");
-			 System.out.println("6. Display Orders by OrderDate in Descending Order");
+			 System.out.println("1. Display Orders by UserID");
+			 System.out.println("2. Display Orders by OrderID");
+			 System.out.println("3. Display Orders by OrderDate");
 			 int ch4=sc.nextInt();
+			 List<Order> orders=asi.getOrders();
 			 switch(ch4) {
 			 case 1:
-				 List<Order> orders=asi.getOrdersByUserId();
+				 System.out.println("Sorted Order by UserId");
+				    SortOrderByUserId userIdCompare = new SortOrderByUserId();
+				    Collections.sort(orders, userIdCompare);
 				 go.PrintOrderDetaisOfSort(orders);
 					break;
 			 case 2:
-				 List<Order> orders1=asi.getOrdersByUserIdDesc();
-				 go.PrintOrderDetaisOfSort(orders1);
+				 System.out.println("Sorted Order by OrderId");
+				    SortByOrderId orderIdCompare = new SortByOrderId();
+				    Collections.sort(orders, orderIdCompare);
+				 go.PrintOrderDetaisOfSort(orders);
 					break;
+		
 			 case 3:
-				 List<Order> orders2=asi.getOrdersByOrderId();
-				 go.PrintOrderDetaisOfSort(orders2);
-					break;
-			 case 4:
-				 List<Order> orders3=asi.getOrdersByOrderIdDesc();
-				 go.PrintOrderDetaisOfSort(orders3);
-					break;
-			 case 5:
-				 List<Order> orders4=asi.getOrdersByOrderDate();
-				 go.PrintOrderDetaisOfSort(orders4);
-					break;
-			 case 6:
-				 List<Order> orders5=asi.getOrdersByOrderDateDesc();
-				 go.PrintOrderDetaisOfSort(orders5);
+				 System.out.println("Sorted Order by OrderDate");
+				    SortByOrderDate orderDateCompare = new SortByOrderDate();
+				    Collections.sort(orders, orderDateCompare);
+				 go.PrintOrderDetaisOfSort(orders);
 					break;
 			 default:
 					break;
@@ -658,59 +639,47 @@ public class BookStoreManagementApp {
 			 int ch=sc.nextInt();
 			 switch(ch) {
 			 case 1: //Get Books By Sorting
-				 System.out.println("1. Display Books By Isbn in Ascending Order");
-				 System.out.println("2. Display Books By Isbn in Descending Order");
-				 System.out.println("3. Display Books By Title in Ascending Order");
-				 System.out.println("4. Display Books By Title in Descending Order");
-				 System.out.println("5. Display Books By Author in Ascending Order");
-				 System.out.println("6. Display Books By Author in Descending Order");
-				 System.out.println("7. Display Books By Price in Ascending Order");
-				 System.out.println("8. Display Books By Price in Descending Order");
-				 System.out.println("9. Display Books By Quantity in Ascending Order");
-				 System.out.println("10. Display Books By Quantity in Descencing Order");
+				 System.out.println("1. Display Books By Isbn");
+				 System.out.println("2. Display Books By Title");
+				 System.out.println("3. Display Books By Author");
+				 System.out.println("4. Display Books By Price");
+				 System.out.println("5. Display Books By Quantity");
 				 System.out.println("Enter your Choice:");
 				 int ch4=sc.nextInt();
+				 List<Book> books=asi.getBooks();
 				 switch(ch4) {
 				 case 1:
-					 List<Book> books1=usi.getBooksByIsbn();
-					 go.PrintBookDetaisOfSort(books1);
+					 
+					 System.out.println("Sort Book by Isbn");
+					 SortByBookIsbn IsbnCompare = new SortByBookIsbn();
+					 Collections.sort(books, IsbnCompare);
+					 go.PrintBookDetaisOfSort(books);
 						break;
 				 case 2:
-					 List<Book> books2=usi.getBooksByIsbnDesc();
-					 go.PrintBookDetaisOfSort(books2);
+					 System.out.println("Sort Book by Title");
+					 SortByBookTitle TitleCompare = new SortByBookTitle();
+					 Collections.sort(books, TitleCompare);
+					 go.PrintBookDetaisOfSort(books);
 						break;
 				 case 3:
-					 List<Book> books3=usi.getBooksByTitle();
-					 go.PrintBookDetaisOfSort(books3);
+					 System.out.println("Sort Book by Author");
+					 SortByBookAuthor AuthorCompare = new SortByBookAuthor();
+					 Collections.sort(books, AuthorCompare);
+					 go.PrintBookDetaisOfSort(books);
 						break;
 				 case 4:
-					 List<Book> books4=usi.getBooksByTitleDesc();
-					 go.PrintBookDetaisOfSort(books4);
+					 System.out.println("Sort Book by Price");
+					    SortByBookPrice priceCompare = new SortByBookPrice();
+					    Collections.sort(books, priceCompare);
+					 go.PrintBookDetaisOfSort(books);
 						break;
 				 case 5:
-					 List<Book> books5=usi.getBooksByAuthor();
-					 go.PrintBookDetaisOfSort(books5);
+					 System.out.println("Sort Book by Quantity");
+					    SortByBookQuantity qtyCompare = new SortByBookQuantity();
+					    Collections.sort(books, qtyCompare);
+					 go.PrintBookDetaisOfSort(books);
 						break;
-				 case 6:
-					 List<Book> books6=usi.getBooksByAuthorDesc();
-					 go.PrintBookDetaisOfSort(books6);
-						break;
-				 case 7:
-					 List<Book> books7=usi.getBooksByPrice();
-					 go.PrintBookDetaisOfSort(books7);
-						break;
-				 case 8:
-					 List<Book> books8=usi.getBooksByPriceDesc();
-					 go.PrintBookDetaisOfSort(books8);
-						break;
-				 case 9:
-					 List<Book> books9=usi.getBooksByQuantity();
-					 go.PrintBookDetaisOfSort(books9);
-						break;
-				 case 10:
-					 List<Book> books10=usi.getBooksByQuantityDesc();
-					 go.PrintBookDetaisOfSort(books10);
-						break;
+				 
 				 default:
 						break;
 				 }

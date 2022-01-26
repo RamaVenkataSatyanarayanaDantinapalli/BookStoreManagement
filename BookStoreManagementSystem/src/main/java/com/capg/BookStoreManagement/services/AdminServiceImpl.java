@@ -89,12 +89,12 @@ public class AdminServiceImpl implements AdminService{
 		return isBookSearch;
 	}
 	
-	public List<User> getUsersByUserId() throws InvalidUserException {
+	public List<User> getUsers() throws InvalidUserException {
 		// TODO Auto-generated method stub
-		List<User> allBooks=ad.getUsersByUserId();
+		List<User> allBooks=ad.getUsers();
 		return allBooks;
 	}
-	public List<User> getUsersByUserIdDesc() throws InvalidUserException {
+	/*public List<User> getUsersByUserIdDesc() throws InvalidUserException {
 		// TODO Auto-generated method stub
 		List<User> allBooks=ad.getUsersByUserIdDesc();
 		return allBooks;
@@ -108,7 +108,7 @@ public class AdminServiceImpl implements AdminService{
 		// TODO Auto-generated method stub
 		List<User> allBooks=ad.getUsersByUserNameDesc();
 		return allBooks;
-	}
+	}*/
 	
 	public List<User> getUsersByRange(int userId1,int userId2)
 	{
@@ -124,12 +124,12 @@ public class AdminServiceImpl implements AdminService{
 		}
 	}
 	
-	public List<Book> getBooksByIsbn() throws InvalidBookException {
+	public List<Book> getBooks() throws InvalidBookException {
 		// TODO Auto-generated method stub
-		List<Book> allBooks=ad.getBooksByIsbn();
+		List<Book> allBooks=ad.getBooks();
 		return allBooks;
 	}
-	public List<Book> getBooksByIsbnDesc() throws InvalidBookException {
+	/*public List<Book> getBooksByIsbnDesc() throws InvalidBookException {
 		// TODO Auto-generated method stub
 		List<Book> allBooks=ad.getBooksByIsbnDesc();
 		return allBooks;
@@ -173,18 +173,18 @@ public class AdminServiceImpl implements AdminService{
 		// TODO Auto-generated method stub
 		List<Book> allBooks=ad.getBooksByQuantityDesc();
 		return allBooks;
-	}
+	}*/
 	
 	public int doCalculateTotal(int orders) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	public List<Order> getOrdersByOrderId() throws InvalidOrderException {
+	public List<Order> getOrders() throws InvalidOrderException {
 		// TODO Auto-generated method stub
-		List<Order> allOrders=ad.getOrdersByOrderId();
+		List<Order> allOrders=ad.getOrders();
 		return allOrders;
 	}
-	public List<Order> getOrdersByOrderIdDesc() throws InvalidOrderException {
+	/*public List<Order> getOrdersByOrderIdDesc() throws InvalidOrderException {
 		// TODO Auto-generated method stub
 		List<Order> allOrders=ad.getOrdersByOrderIdDesc();
 		return allOrders;
@@ -208,7 +208,7 @@ public class AdminServiceImpl implements AdminService{
 		// TODO Auto-generated method stub
 		List<Order> allOrders=ad.getOrdersByOrderDateDesc();
 		return allOrders;
-	}
+	}*/
 	public  List<Order> doSearchOrderByOrderDate(String orderDate) throws InvalidOrderException {
 		// TODO Auto-generated method stub
 		 List<Order> isOrderSearch=ad.doSearchOrderByOrderDate(orderDate);

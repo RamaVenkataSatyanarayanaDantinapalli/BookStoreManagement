@@ -39,7 +39,7 @@ public class UserDAOImpl implements UserDAO{
 		    }
 		    return false;
 		 }
-	public List<Book> getBooksByIsbn()
+	public List<Book> getBooks()
 	 {
 		 String sqlQuery="Select * from Book order by isbn";
 		 List<Book> booksList=new ArrayList<Book>();
@@ -67,7 +67,7 @@ public class UserDAOImpl implements UserDAO{
 		 
 	 }
 	 
-	 public List<Book> getBooksByIsbnDesc()
+	 /*public List<Book> getBooksByIsbnDesc()
 	 {
 		 String sqlQuery="Select * from Book order by isbn desc";
 		 List<Book> booksList=new ArrayList<Book>();
@@ -77,7 +77,7 @@ public class UserDAOImpl implements UserDAO{
 			 ResultSet rs=ps.executeQuery();
 			 while(rs.next())
 			 {
-				 long isbn=rs.getLong("isbn");
+				 int isbn=rs.getInt("isbn");
 				 String title=rs.getString("title");
 				 String author=rs.getString("author");
 				 int price=rs.getInt("price");
@@ -306,7 +306,7 @@ public class UserDAOImpl implements UserDAO{
 			// TODO: handle exception
 		}
 		return null;
-	}
+	}*/
 	
 	public Book doSearchBook(int Isbn) {
 		 try {
