@@ -34,10 +34,7 @@ public class Book implements Comparable<Book>{
 	public int getQty() {
 		return qty;
 	}
-	
 public int compareTo(Book b) {
-		
-		
 		return this.isbn-b.isbn;
 		}
 }

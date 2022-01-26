@@ -18,6 +18,7 @@ public class Order {
 		this.orderId = orderId;
 		this.orderDate = orderDate;
 	}
+	
 	public int getUserId() {
 		return userId;
 	}

@@ -7,14 +7,17 @@ public class Cart {
 	int bookQuantity;
 	int totalPrice;
 	
-	public Cart(int userId,int bookIsbn,String bookTitle,int bookQuantity,int totalPrice){
+	public Cart(int userId,int bookIsbn,String bookTitle,int bookQuantity,int totalPrice)
+	{
 		this.userId = userId;
 		this.bookIsbn = bookIsbn;
 		this.bookTitle = bookTitle;
 		this.bookQuantity = bookQuantity;
 		this.totalPrice = totalPrice;
 	}
-	public int getUserId() {
+	
+	public int getUserId() 
+	{
 		return userId;
 	}
 	
@@ -22,7 +25,8 @@ public class Cart {
 		return bookIsbn;
 	}
 	
-	public String getBookTitle() {
+	public String getBookTitle() 
+	{
 		return bookTitle;
 	}
 	
@@ -33,6 +37,4 @@ public class Cart {
 	public int getTotalPrice() {
 		return totalPrice;
 	}
-	
-		
 }

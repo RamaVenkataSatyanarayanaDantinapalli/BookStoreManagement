@@ -1,6 +1,7 @@
 package com.capg.BookStoreManagement.beans;
 
 public class Admin {
+	
 	public String UserNameSaved="Admin";
 	public  String PasswordSaved="Admin@123";
 	private String UserNameEntered;
@@ -10,19 +11,15 @@ public class Admin {
 		return UserNameEntered;
 	}
 
-
 	public void setUserNameEntered(String userNameEntered) {
 		UserNameEntered = userNameEntered;
 	}
-
 
 	public String getPasswordEntered() {
 		return PasswordEntered;
 	}
 
-
 	public void setPasswordEntered(String passwordEntered) {
 		PasswordEntered = passwordEntered;
-	}
-	
+	}	
 }
