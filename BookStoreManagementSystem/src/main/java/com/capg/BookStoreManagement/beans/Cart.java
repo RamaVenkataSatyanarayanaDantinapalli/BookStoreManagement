@@ -7,10 +7,10 @@ public class Cart {
 	int bookQuantity;
 	int totalPrice;
 	
-	public Cart(int userId,int bookIsbn,String bookTitle,int bookQuantity,int totalPrice)
+	public Cart(int userId,int isbn,String bookTitle,int bookQuantity,int totalPrice)
 	{
 		this.userId = userId;
-		this.bookIsbn = bookIsbn;
+		this.bookIsbn = isbn;
 		this.bookTitle = bookTitle;
 		this.bookQuantity = bookQuantity;
 		this.totalPrice = totalPrice;

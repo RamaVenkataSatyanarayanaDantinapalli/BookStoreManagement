@@ -6,7 +6,7 @@ import java.sql.Time;
 
 public class Order {
 	public int userId;
-	public int bookIsbn;
+	public long bookIsbn;
 	public String bookTitle;
 	public int bookQuantity;
 	public int totalPrice;
@@ -14,7 +14,7 @@ public class Order {
 	public Date orderDate;
 	public Time orderTime;
 	
-	public Order(int userId,int bookIsbn,String bookTitle,int bookQuantity,int totalPrice,int orderId,Date orderDate,Time orderTime) {
+	public Order(int userId,long bookIsbn,String bookTitle,int bookQuantity,int totalPrice,int orderId,Date orderDate,Time orderTime) {
 		this.userId = userId;
 		this.bookIsbn = bookIsbn;
 		this.bookTitle = bookTitle;
@@ -29,7 +29,7 @@ public class Order {
 		return userId;
 	}
 	
-	public int getBookIsbn() {
+	public long getBookIsbn() {
 		return bookIsbn;
 	}
 	

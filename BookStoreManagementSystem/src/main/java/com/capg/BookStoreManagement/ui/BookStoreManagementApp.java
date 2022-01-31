@@ -102,7 +102,7 @@ public class BookStoreManagementApp {
 						System.out.println("enter the user Address");
 						String UserAddress=scr.nextLine();
 						System.out.println("enter the phonenumber");
-						String UserPhone=scr.nextLine();
+						long UserPhone=scr.nextLong();
 						boolean isEmailValid=ve1.doValidateEmail(UserEmail);
 						boolean isPhoneValid=vp1.doValidatePhone(UserPhone);
 						if(isEmailValid) {
@@ -170,7 +170,7 @@ public class BookStoreManagementApp {
 				System.out.println("enter the user Address");
 				String userAddress=scr.nextLine();
 				System.out.println("enter the phonenumber");
-				String userPhone=scr.nextLine();
+				Long userPhone=scr.nextLong();
 				boolean isEmailValid=ve.doValidateEmail(userEmail);
 				boolean isPhoneValid=vp.doValidatePhone(userPhone);
 				if(isEmailValid) {
@@ -209,7 +209,7 @@ public class BookStoreManagementApp {
 				System.out.println("enter the user Address");
 				String modifyUserAddress=scr.nextLine();
 				System.out.println("enter the phonenumber");
-				String modifyUserPhone=scr.nextLine();
+				Long modifyUserPhone=scr.nextLong();
 				isEmailValid=ve.doValidateEmail(modifyUserEmail);
 				isPhoneValid=vp.doValidatePhone(modifyUserPhone);
 				if(isEmailValid) {

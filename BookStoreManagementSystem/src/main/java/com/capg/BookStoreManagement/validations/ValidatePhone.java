@@ -1,10 +1,11 @@
 package com.capg.BookStoreManagement.validations;
 
 public class ValidatePhone {
-	public boolean doValidatePhone(String Phone) {
+	public boolean doValidatePhone(long userPhone) {
 		
 		String regex="^\\d{10}$";
-	      boolean result=Phone.matches(regex);
+		String phone=String.valueOf(userPhone);
+	      boolean result=phone.matches(regex);
 	      if(result) {
 	    	  return true;
 	      }

@@ -31,7 +31,7 @@ public class UserDAOImpl implements UserDAO{
 		        ps.setString(3,user.getUserPwd());
 		        ps.setString(4,user.getUserEmail());
 		        ps.setString(5,user.getUserAddress());
-		        ps.setString(6,user.getUserPhone());
+		        ps.setLong(6,user.getUserPhone());
 		        int i = ps.executeUpdate(); // DML, i holds the value :- number of rows effected
 				if(i==1) return true;
 				return false;
@@ -141,7 +141,7 @@ public class UserDAOImpl implements UserDAO{
 		    {
 		        ps = con.prepareStatement("insert into bookstoremanagement.order values (?,?,?,?,?,?,?,?)");
 		        ps.setInt(1,od.getUserId());
-		        ps.setInt(2,od.getBookIsbn());
+		        ps.setLong(2,od.getBookIsbn());
 		        ps.setString(3,od.getBookTitle());
 		        ps.setInt(4,od.getBookQuantity());
 		        ps.setInt(5,od.getTotalPrice());
@@ -164,7 +164,7 @@ public class UserDAOImpl implements UserDAO{
 		    {
 		        ps = con.prepareStatement("insert into bookstoremanagement.cart values (?,?,?,?,?)");
 		        ps.setInt(1,ct.getUserId());
-		        ps.setInt(2,ct.getBookIsbn());
+		        ps.setLong(2,ct.getBookIsbn());
 		        ps.setString(3,ct.getBookTitle());
 		        ps.setInt(4,ct.getBookQuantity());
 		        ps.setInt(5,ct.getTotalPrice());
@@ -191,7 +191,7 @@ public class UserDAOImpl implements UserDAO{
 				 ResultSet rs = ps.executeQuery();
 					while(rs.next()) {
 						int UserID=rs.getInt("userId");
-						int Isbn = rs.getInt("bookIsbn");
+						long Isbn = rs.getInt("bookIsbn");
 						String Title = rs.getString("bookTitle");
 						int qty = rs.getInt("bookQuantity");
 						int TotalPrice=rs.getInt("totalPrice");

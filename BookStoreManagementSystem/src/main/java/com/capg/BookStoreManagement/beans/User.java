@@ -6,9 +6,9 @@ public class User implements Comparable<User>{
 	private String userPwd;
 	private String userEmail;
 	private String userAddress;
-	private String userPhone;
+	private long userPhone;
 	
-	public User(int userId,String userName,String userPwd,String userEmail,String userAddress,String userPhone) {
+	public User(int userId,String userName,String userPwd,String userEmail,String userAddress,long userPhone) {
 		
 		this.userId = userId;
 		this.userName = userName;
@@ -38,7 +38,7 @@ public class User implements Comparable<User>{
 		return userAddress;
 	}
 	
-	public String getUserPhone() {
+	public long getUserPhone() {
 		return userPhone;
 	}
 	

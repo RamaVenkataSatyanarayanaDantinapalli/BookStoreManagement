@@ -27,7 +27,7 @@ public class AdminDAOImpl implements AdminDAO{
 		        ps.setString(3,user.getUserPwd());
 		        ps.setString(4,user.getUserEmail());
 		        ps.setString(5,user.getUserAddress());
-		        ps.setString(6,user.getUserPhone());
+		        ps.setLong(6,user.getUserPhone());
 		        int i = ps.executeUpdate(); // DML, i holds the value :- number of rows effected
 				if(i==1) return true;
 				return false;
@@ -51,7 +51,7 @@ public class AdminDAOImpl implements AdminDAO{
 	        ps.setString(3,user.getUserPwd());
 	        ps.setString(4,user.getUserEmail());
 	        ps.setString(5,user.getUserAddress());
-	        ps.setString(6,user.getUserPhone());
+	        ps.setLong(6,user.getUserPhone());
 	        ps.setInt(7,user.getUserId());
 	      
 	      int i = ps.executeUpdate(); // DML, i holds the value :- number of rows effected
@@ -95,7 +95,7 @@ public class AdminDAOImpl implements AdminDAO{
 			String userPwd = rs.getString("userPwd");
 			String userEmail = rs.getString("userEmail");
 			String userAddress = rs.getString("userAddress");
-		    String userPhone = rs.getString("userPhone");
+		    Long userPhone = rs.getLong("userPhone");
 			User u=new User(userID,userName,userPwd,userEmail,userAddress,userPhone);
 			return u;
 		}
@@ -117,7 +117,7 @@ public class AdminDAOImpl implements AdminDAO{
 			String userPwd = rs.getString("userPwd");
 			String userEmail = rs.getString("userEmail");
 			String userAddress = rs.getString("userAddress");
-		    String userPhone = rs.getString("userPhone");
+		    Long userPhone = rs.getLong("userPhone");
 			User u=new User(userID,guserName,userPwd,userEmail,userAddress,userPhone);
 			return u;
 		}
@@ -271,7 +271,7 @@ public class AdminDAOImpl implements AdminDAO{
 				 String UserPwd=rs.getString("UserPwd");
 				 String UserEmail=rs.getString("userEmail");
 				 String UserAddress=rs.getString("userAddress");
-				 String UserPhone=rs.getString("userPhone");
+				 Long UserPhone=rs.getLong("userPhone");
 				 User us=new User(UserId,UserName,UserPwd,UserEmail,UserAddress,UserPhone);
 				 usersList.add(us);
 			 }
@@ -300,7 +300,7 @@ public class AdminDAOImpl implements AdminDAO{
 				 String UserPwd=rs.getString("userPwd");
 				 String UserEmail=rs.getString("userEmail");
 				 String UserAddress=rs.getString("userAddress");
-				 String UserPhone=rs.getString("userPhone");
+				 Long UserPhone=rs.getLong("userPhone");
 				 
 				 User u=new User(UserId,UserName,UserPwd,UserEmail,UserAddress,UserPhone);
 				 usersList.add(u);
