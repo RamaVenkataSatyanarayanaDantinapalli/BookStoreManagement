@@ -24,7 +24,7 @@ import com.capg.BookStoreManagement.sortings.*;
 public class BookStoreManagementApp {
 	Scanner sc=new Scanner(System.in);
 	static Scanner scr=new Scanner(System.in);
-	Scanner s=new Scanner(System.in);
+	//Scanner s=new Scanner(System.in);
 	AdminDAOImpl adminobj=new AdminDAOImpl();
 	AdminServiceImpl asi=new AdminServiceImpl();
 	UserServiceImpl usi=new UserServiceImpl();
@@ -81,18 +81,18 @@ public class BookStoreManagementApp {
 				   Scanner s=new Scanner(System.in);
 				   boolean status;
 				   UserServiceImpl usi=new UserServiceImpl();
-				   int ch=s.nextInt();
+				   int ch=sc.nextInt();
 				   switch(ch) {
 				   case 1:
 					   System.out.println("enter your userId");
-					   Integer userId=s.nextInt();
+					   Integer userId=sc.nextInt();
 					   System.out.println("enter your password");
 					   String password=scr.nextLine();
 					   app.doUserLogin(userId,password);
 					   break;
 				   case 2:
 					   System.out.println("enter userid to add user");
-						int UserId=s.nextInt();
+						int UserId=sc.nextInt();
 						System.out.println("enter the userName");
 						String UserName=scr.nextLine();
 						System.out.println("enter the password");
@@ -102,7 +102,7 @@ public class BookStoreManagementApp {
 						System.out.println("enter the user Address");
 						String UserAddress=scr.nextLine();
 						System.out.println("enter the phonenumber");
-						long UserPhone=scr.nextLong();
+						long UserPhone=sc.nextLong();
 						boolean isEmailValid=ve1.doValidateEmail(UserEmail);
 						boolean isPhoneValid=vp1.doValidatePhone(UserPhone);
 						if(isEmailValid) {
@@ -170,7 +170,7 @@ public class BookStoreManagementApp {
 				System.out.println("enter the user Address");
 				String userAddress=scr.nextLine();
 				System.out.println("enter the phonenumber");
-				Long userPhone=scr.nextLong();
+				Long userPhone=sc.nextLong();
 				boolean isEmailValid=ve.doValidateEmail(userEmail);
 				boolean isPhoneValid=vp.doValidatePhone(userPhone);
 				if(isEmailValid) {
@@ -201,7 +201,7 @@ public class BookStoreManagementApp {
 				System.out.println("enter userid to modify user");
 				int modifyUserId=sc.nextInt();
 				System.out.println("enter the userName");
-				String modifyUserName=s.nextLine();
+				String modifyUserName=scr.nextLine();
 				System.out.println("enter the password");
 				String modifyUserPwd=scr.nextLine();
 				System.out.println("enter the user Email");
@@ -209,7 +209,7 @@ public class BookStoreManagementApp {
 				System.out.println("enter the user Address");
 				String modifyUserAddress=scr.nextLine();
 				System.out.println("enter the phonenumber");
-				Long modifyUserPhone=scr.nextLong();
+				Long modifyUserPhone=sc.nextLong();
 				isEmailValid=ve.doValidateEmail(modifyUserEmail);
 				isPhoneValid=vp.doValidatePhone(modifyUserPhone);
 				if(isEmailValid) {
@@ -343,7 +343,7 @@ public class BookStoreManagementApp {
 				System.out.println("enter inter national standard book number");
 				int isbn=sc.nextInt();
 				System.out.println("enter book title");
-				String title=s.nextLine();
+				String title=scr.nextLine();
 				System.out.println("enter book author");
 				String author=scr.nextLine();
 				System.out.println("enter book price");
@@ -365,7 +365,7 @@ public class BookStoreManagementApp {
 				 break;
 		
 		 case 2://edit books
-				System.out.println("enter inter national standard book number");
+				System.out.println("Enter Inter National Standard Book Number(Isbn)");
 				int modifyIsbn=sc.nextInt();
 				System.out.println("enter book title");
 				String modifyTitle=scr.nextLine();
@@ -438,7 +438,7 @@ public class BookStoreManagementApp {
 					break;
 			 case 3:
 				   System.out.println("enter the book title");
-				   String titleSearch=s.nextLine();
+				   String titleSearch=scr.nextLine();
 				   status2=asi.searchByBookTitle(titleSearch);
 				   if(status2!=null) {
 					   go.PrintBookDetaisOfSearch(status2);
@@ -580,7 +580,7 @@ public class BookStoreManagementApp {
 				   break;
 			 case 3://search Order by OrderDate
 				    System.out.println("enter the Order Date(DD/MM/YYYY)");
-				    String OrderDate=s.nextLine();
+				    String OrderDate=scr.nextLine();
 				    List<Order> OrderStatus2 = asi.doSearchOrderByOrderDate(OrderDate);
 				    if(OrderStatus2.size()>0) {
 				    	go.PrintOrderDetaisOfSort(OrderStatus2);
@@ -726,7 +726,7 @@ public class BookStoreManagementApp {
 						break;
 				 case 3:
 					   System.out.println("enter the book title");
-					   String titleSearch=s.nextLine();
+					   String titleSearch=scr.nextLine();
 					   status2=usi.searchByBookTitle(titleSearch);
 					   if(status2!=null) {
 						   go.PrintBookDetaisOfSearch(status2);
@@ -745,7 +745,7 @@ public class BookStoreManagementApp {
 				 System.out.println("Enter BookIsbn:");
 				 int BookIsbn=sc.nextInt();
 				 System.out.println("Enter BookTitle:");
-				 String BookTitle=s.nextLine();
+				 String BookTitle=scr.nextLine();
 				 System.out.println("Enter BookQuantity:");
 				 int BookQty=sc.nextInt();
 				 int TotalPrice=usi.doCalculateTotalPrice(BookIsbn, BookQty);
