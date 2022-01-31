@@ -1,5 +1,9 @@
 package com.capg.BookStoreManagement.dao;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.List;
 
 import com.capg.BookStoreManagement.beans.Book;
@@ -32,7 +36,8 @@ public interface UserDAO {
     
     public Integer GetOrderId();
     
-    public String GetCurrentDate();
+    public java.util.Date GetCurrentDate() throws ParseException;
+    public Time GetCurrentTime() throws ParseException;
     
     public void doUpdateBooksTotal(int Isbn,int Qty);
     

@@ -1,5 +1,8 @@
 package com.capg.BookStoreManagement.services;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.text.ParseException;
 import java.util.List;
 
 import com.capg.BookStoreManagement.beans.Book;
@@ -32,7 +35,8 @@ public interface UserService {
     
     public Integer GetOrderId() throws InvalidOrderException;
     
-    public String GetCurrentDate();
+    public Date GetCurrentDate() throws ParseException;
+    public Time GetCurrentTime() throws ParseException;
     
     public void doUpdateBooksTotal(int Qty,int Isbn) throws InvalidBookException;
     

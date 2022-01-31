@@ -1,5 +1,8 @@
 package com.capg.BookStoreManagement.services;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.text.ParseException;
 import java.util.List;
 import com.capg.BookStoreManagement.beans.Book;
 import com.capg.BookStoreManagement.beans.Cart;
@@ -78,9 +81,14 @@ public class UserServiceImpl implements UserService{
 		return orderId;
 	}
 	
-	public String GetCurrentDate() {
-		String CurrentDate=ad.GetCurrentDate();
+	public Date GetCurrentDate() throws ParseException {
+		Date CurrentDate=ad.GetCurrentDate();
 		return CurrentDate;
+	}
+	
+	public Time GetCurrentTime() throws ParseException {
+		Time CurrentTime=ad.GetCurrentTime();
+		return CurrentTime;
 	}
 	
 	public boolean doCancelOrder(int userId,int orderId){

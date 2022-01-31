@@ -53,11 +53,11 @@ public class GetOutputs {
 	
 	public void PrintOrderDetaisOfSearch(List<Order> orders) {
 		System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.printf("%10s %20s %20s %15s %15s %15s %15s", "User_ID", "Book_Isbn", "Book_Title", "Book_Quantity", "Total_Price", "Order_ID", "Order_Date");
+        System.out.printf("%10s %20s %20s %15s %15s %15s %15s %15s", "User_ID", "Book_Isbn", "Book_Title", "Book_Quantity", "Total_Price", "Order_ID", "Order_Date", "Order_Time");
         System.out.println();
 		System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
 		for (Order order : orders) {
-			System.out.format("%10s %20s %20s %15s %15s %15s %15s",order.getUserId(),order.getBookIsbn(),order.getBookTitle(),order.getBookQuantity(),order.getTotalPrice(),order.getOrderId(),order.getOrderDate());
+			System.out.format("%10s %20s %20s %15s %15s %15s %15s %15s",order.getUserId(),order.getBookIsbn(),order.getBookTitle(),order.getBookQuantity(),order.getTotalPrice(),order.getOrderId(),order.getOrderDate(),order.getOrderTime());
 			System.out.println();	
 		}
 			System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
@@ -65,11 +65,11 @@ public class GetOutputs {
 	
 	public void PrintOrderDetaisOfSort(List<Order> orders) {
 		System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.printf("%10s %20s %20s %15s %15s %15s %15s", "User_ID", "Book_Isbn", "Book_Title", "Book_Quantity", "Total_Price", "Order_ID", "Order_Date");
+        System.out.printf("%10s %20s %20s %15s %15s %15s %15s %15s", "User_ID", "Book_Isbn", "Book_Title", "Book_Quantity", "Total_Price", "Order_ID", "Order_Date", "Order_Time");
         System.out.println();
 		System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
         for (Order order : orders) {
-			System.out.format("%10s %20s %20s %15s %15s %15s %15s",order.getUserId(),order.getBookIsbn(),order.getBookTitle(),order.getBookQuantity(),order.getTotalPrice(),order.getOrderId(),order.getOrderDate());
+			System.out.format("%10s %20s %20s %15s %15s %15s %15s %15s",order.getUserId(),order.getBookIsbn(),order.getBookTitle(),order.getBookQuantity(),order.getTotalPrice(),order.getOrderId(),order.getOrderDate(),order.getOrderTime());
 			System.out.println();
 		}	
 		System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
@@ -94,11 +94,11 @@ public class GetOutputs {
 	
 	public void PrintCanceledOrderDetais(List<Order> cancelOrders,int TotalRefundAmount) {
 		System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.printf("%10s %20s %20s %15s %15s %15s %15s", "User_ID", "Book_Isbn", "Book_Title", "Book_Quantity", "Total_Price", "Order_ID", "Order_Date");
+        System.out.printf("%10s %20s %20s %15s %15s %15s %15s %15s", "User_ID", "Book_Isbn", "Book_Title", "Book_Quantity", "Total_Price", "Order_ID", "Order_Date", "Order_Time");
         System.out.println();
 		System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
 		for (Order CancelOrder : cancelOrders) {
-			System.out.format("%10s %20s %20s %15s %15s %15s %15s",CancelOrder.getUserId(),CancelOrder.getBookIsbn(),CancelOrder.getBookTitle(),CancelOrder.getBookQuantity(),CancelOrder.getTotalPrice(),CancelOrder.getOrderId(),CancelOrder.getOrderDate());
+			System.out.format("%10s %20s %20s %15s %15s %15s %15s %15s",CancelOrder.getUserId(),CancelOrder.getBookIsbn(),CancelOrder.getBookTitle(),CancelOrder.getBookQuantity(),CancelOrder.getTotalPrice(),CancelOrder.getOrderId(),CancelOrder.getOrderDate(),CancelOrder.getOrderTime());
 			System.out.println();	
 		}
 			System.out.println("------------------------------------------------------------------------------------------------------------------------------------");

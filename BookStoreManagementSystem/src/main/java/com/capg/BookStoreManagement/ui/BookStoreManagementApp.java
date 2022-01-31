@@ -1,5 +1,9 @@
 package com.capg.BookStoreManagement.ui;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.text.ParseException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
@@ -33,12 +37,12 @@ public class BookStoreManagementApp {
 	User status1;
 	Book status2;
 	boolean Orderstatus;
-	public static void main(String[] args) throws InvalidUserException, InvalidAdminException, InvalidBookException, InvalidOrderException,InvalidCartException{
+	public static void main(String[] args) throws InvalidUserException, InvalidAdminException, InvalidBookException, InvalidOrderException,InvalidCartException, ParseException{
 		BookStoreManagementApp bsm=new BookStoreManagementApp();
 		bsm.LoginPage();
 	}
 	
-	public void LoginPage() throws InvalidUserException, InvalidAdminException, InvalidBookException, InvalidOrderException,InvalidCartException {
+	public void LoginPage() throws InvalidUserException, InvalidAdminException, InvalidBookException, InvalidOrderException,InvalidCartException, ParseException {
 		BookStoreManagementApp app=new BookStoreManagementApp();
 		ValidateEmail ve1=new ValidateEmail();
 		ValidatePhone vp1=new ValidatePhone();
@@ -133,7 +137,7 @@ public class BookStoreManagementApp {
 			}
 	    }
 	}
-	public void doAdminLogin(String adminName,String adminPassword) throws InvalidUserException,InvalidAdminException,InvalidBookException, InvalidOrderException, InvalidCartException
+	public void doAdminLogin(String adminName,String adminPassword) throws InvalidUserException,InvalidAdminException,InvalidBookException, InvalidOrderException, InvalidCartException, ParseException
     {
 		if(val.doValidateAdmin(adminName, adminPassword)) {
 	while(true) {
@@ -623,7 +627,7 @@ public class BookStoreManagementApp {
     	
     }
 	
-	public void doUserLogin(int userId,String password) throws InvalidBookException, InvalidOrderException, InvalidUserException, InvalidAdminException, InvalidCartException
+	public void doUserLogin(int userId,String password) throws InvalidBookException, InvalidOrderException, InvalidUserException, InvalidAdminException, InvalidCartException, ParseException
 	 {
 		 boolean status=vul.doValidateUser(userId, password);
 		 if(status) {
@@ -794,14 +798,15 @@ public class BookStoreManagementApp {
 					 orderID=301;
 				 }
 				 
-				 String CurrentDate=usi.GetCurrentDate();
+				 Date CurrentDate=usi.GetCurrentDate();
+				 Time CurrentTime=usi.GetCurrentTime();
 				 int TotalOrderAmount1=usi.doCalculateTotalOrderPrice(userId);
 				 List<Cart> CartOrders1=usi.DisplayCartOrders(userId);
 				 if(CartOrders1.size()>0) {
 					 go.PrintCartDetais(CartOrders1,TotalOrderAmount1);
 					for (Cart ct : CartOrders1) 
 					{
-						Order ord=new Order(ct.getUserId(),ct.getBookIsbn(),ct.getBookTitle(),ct.getBookQuantity(),ct.getTotalPrice(),orderID,CurrentDate);
+						Order ord=new Order(ct.getUserId(),ct.getBookIsbn(),ct.getBookTitle(),ct.getBookQuantity(),ct.getTotalPrice(),orderID,CurrentDate,CurrentTime);
 						Orderstatus=usi.doOrderBooks(ord);
 						int TotalBooks1=usi.getTotalBooks(ct.getBookIsbn());
 						int UpdatedTotalBooks=TotalBooks1-ct.getBookQuantity();

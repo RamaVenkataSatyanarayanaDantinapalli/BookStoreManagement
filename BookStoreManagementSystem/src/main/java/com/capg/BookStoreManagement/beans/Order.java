@@ -1,5 +1,9 @@
 package com.capg.BookStoreManagement.beans;
 
+import java.sql.Date;
+import java.sql.Time;
+
+
 public class Order {
 	public int userId;
 	public int bookIsbn;
@@ -7,9 +11,10 @@ public class Order {
 	public int bookQuantity;
 	public int totalPrice;
 	public int orderId;
-	public String orderDate;
+	public Date orderDate;
+	public Time orderTime;
 	
-	public Order(int userId,int bookIsbn,String bookTitle,int bookQuantity,int totalPrice,int orderId,String orderDate) {
+	public Order(int userId,int bookIsbn,String bookTitle,int bookQuantity,int totalPrice,int orderId,Date orderDate,Time orderTime) {
 		this.userId = userId;
 		this.bookIsbn = bookIsbn;
 		this.bookTitle = bookTitle;
@@ -17,6 +22,7 @@ public class Order {
 		this.totalPrice = totalPrice;
 		this.orderId = orderId;
 		this.orderDate = orderDate;
+		this.orderTime = orderTime;
 	}
 	
 	public int getUserId() {
@@ -43,8 +49,12 @@ public class Order {
 		return orderId;
 	}
 	
-	public String getOrderDate() {
+	public Date getOrderDate() {
 		return orderDate;
+	}
+	
+	public Time getOrderTime() {
+		return orderTime;
 	}
 	
 }

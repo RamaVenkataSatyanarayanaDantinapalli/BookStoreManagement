@@ -1,8 +1,10 @@
 package com.capg.BookStoreManagement.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 import com.capg.BookStoreManagement.beans.Book;
@@ -354,8 +356,9 @@ public class AdminDAOImpl implements AdminDAO{
 				 int qty=rs.getInt("bookQuantity");
 				 int totalPrice=rs.getInt("totalPrice");
 				 int orderId=rs.getInt("orderId");
-				 String orderDate=rs.getString("orderDate");
-				 Order od=new Order(userId,Isbn,title,qty,totalPrice,orderId,orderDate);
+				 Date orderDate=rs.getDate("orderDate");
+				 Time orderTime=rs.getTime("orderTime");
+				 Order od=new Order(userId,Isbn,title,qty,totalPrice,orderId,orderDate,orderTime);
 				 ordersList.add(od);
 			 }
 			 return ordersList;
@@ -381,8 +384,9 @@ public class AdminDAOImpl implements AdminDAO{
 				 int qty=rs.getInt("bookQuantity");
 				 int totalPrice=rs.getInt("totalPrice");
 				 int orderId=rs.getInt("orderId");
-				 String orderDate=rs.getString("orderDate");
-				 Order od=new Order(UserID3,Isbn,title,qty,totalPrice,orderId,orderDate);
+				 Date orderDate=rs.getDate("orderDate");
+				 Time orderTime=rs.getTime("orderTime");
+				 Order od=new Order(UserID3,Isbn,title,qty,totalPrice,orderId,orderDate,orderTime);
 				 OrdersList.add(od);
 				}
 			 return OrdersList;
@@ -408,8 +412,9 @@ public class AdminDAOImpl implements AdminDAO{
 				 int qty=rs.getInt("bookQuantity");
 				 int totalPrice=rs.getInt("totalPrice");
 				 int OrderId=rs.getInt("orderId");
-				 String orderDate=rs.getString("orderDate");
-				 Order od=new Order(UserID3,Isbn,title,qty,totalPrice,OrderId,orderDate);
+				 Date orderDate=rs.getDate("orderDate");
+				 Time OrderTime=rs.getTime("orderTime");
+				 Order od=new Order(UserID3,Isbn,title,qty,totalPrice,OrderId,orderDate,OrderTime);
 				 OrdersList.add(od);
 				}
 			 return OrdersList;
@@ -436,8 +441,9 @@ public class AdminDAOImpl implements AdminDAO{
 				 int qty=rs.getInt("bookQuantity");
 				 int totalPrice=rs.getInt("totalPrice");
 				 int orderId=rs.getInt("orderId");
-				 String OrderDate=rs.getString("orderDate");
-				 Order od=new Order(UserID3,Isbn,title,qty,totalPrice,orderId,OrderDate);
+				 Date OrderDate=rs.getDate("orderDate");
+				 Time OrderTime=rs.getTime("orderTime");
+				 Order od=new Order(UserID3,Isbn,title,qty,totalPrice,orderId,OrderDate,OrderTime);
 				 OrdersList.add(od);
 				}
 			 return OrdersList;

@@ -3,9 +3,13 @@ package com.capg.BookStoreManagement.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import com.capg.BookStoreManagement.beans.Book;
@@ -135,14 +139,15 @@ public class UserDAOImpl implements UserDAO{
 	  public boolean doOrderBooks(Order od) {
 		  try
 		    {
-		        ps = con.prepareStatement("insert into bookstoremanagement.order values (?,?,?,?,?,?,?)");
+		        ps = con.prepareStatement("insert into bookstoremanagement.order values (?,?,?,?,?,?,?,?)");
 		        ps.setInt(1,od.getUserId());
 		        ps.setInt(2,od.getBookIsbn());
 		        ps.setString(3,od.getBookTitle());
 		        ps.setInt(4,od.getBookQuantity());
 		        ps.setInt(5,od.getTotalPrice());
 		        ps.setInt(6,od.getOrderId());
-		        ps.setString(7, od.getOrderDate());
+		        ps.setDate(7, od.getOrderDate());
+		        ps.setTime(8, od.getOrderTime());
 		        int i = ps.executeUpdate(); // DML, i holds the value :- number of rows effected
 				if(i==1) return true;
 				return false;
@@ -191,8 +196,9 @@ public class UserDAOImpl implements UserDAO{
 						int qty = rs.getInt("bookQuantity");
 						int TotalPrice=rs.getInt("totalPrice");
 						int OrderId=rs.getInt("orderId");
-						String OrderDate=rs.getString("orderDate");
-						Order o=new Order(UserID,Isbn,Title,qty,TotalPrice,OrderId,OrderDate);
+						Date OrderDate=rs.getDate("orderDate");
+						Time OrderTime=rs.getTime("orderTime");
+						Order o=new Order(UserID,Isbn,Title,qty,TotalPrice,OrderId,OrderDate,OrderTime);
 						ordersList.add(o);
 					}
 					return ordersList;
@@ -350,11 +356,37 @@ public class UserDAOImpl implements UserDAO{
 		    	System.out.println("Exception while Updating Total Books "+e);
 		    }
 	  }
-	  public String GetCurrentDate() {
-		  SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy");
-		  Date date=new Date();
-		  return formatter.format(date);
-		    }
+	  public Date GetCurrentDate() throws ParseException {
+		 try {
+			 java.util.Date date=new java.util.Date();
+			 java.sql.Date sqlDate=new java.sql.Date(date.getTime());
+			 //java.sql.Timestamp sqlTime=new java.sql.Timestamp(date.getTime());
+			 return sqlDate;
+		 }
+		 catch(Exception e) {
+			 e.printStackTrace();
+		 }
+		 return null;
+	  }
+	  
+	  public Time GetCurrentTime() throws ParseException {
+			 try {
+				 java.util.Date date=new java.util.Date();
+				 //java.sql.Date sqlDate=new java.sql.Date(date.getTime());
+				 Time sqlTime=new java.sql.Time(date.getTime());
+				 return sqlTime;
+			 }
+			 catch(Exception e) {
+				 e.printStackTrace();
+			 }
+			 return null;
+		  }
+		 /* SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy");
+		  LocalDate date=LocalDate.now();
+		  String date1=formatter.format(date);
+		  Date date2=new SimpleDateFormat("dd/MM/yyyy").parse(date1);
+		  return date2;
+		    }*/
 	  
 	  public Integer getOrderQty(int userId,int orderId,int Isbn) {
 		  try {
@@ -414,8 +446,9 @@ public class UserDAOImpl implements UserDAO{
 					 int qty=rs.getInt("bookQuantity");
 					 int totalPrice=rs.getInt("totalPrice");
 					 int OrderId=rs.getInt("orderId");
-					 String orderDate=rs.getString("orderDate");
-					 Order od=new Order(UserId,Isbn,title,qty,totalPrice,OrderId,orderDate);
+					 Date orderDate=rs.getDate("orderDate");
+					 Time orderTime=rs.getTime("orderTime");
+					 Order od=new Order(UserId,Isbn,title,qty,totalPrice,OrderId,orderDate,orderTime);
 					 canceledOrders.add(od);
 				 }
 				 return canceledOrders;
