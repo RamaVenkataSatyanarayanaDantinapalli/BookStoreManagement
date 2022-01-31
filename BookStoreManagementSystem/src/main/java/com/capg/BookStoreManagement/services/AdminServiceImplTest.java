@@ -1,19 +1,11 @@
 package com.capg.BookStoreManagement.services;
 
 import static org.junit.Assert.assertEquals;
-
-import java.math.BigInteger;
-import java.util.Arrays;
-import java.util.List;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.capg.BookStoreManagement.beans.Book;
-import com.capg.BookStoreManagement.beans.Order;
-import com.capg.BookStoreManagement.beans.User;
-//import com.capg.BookStoreManagement.beans.User;
 import com.capg.BookStoreManagement.dao.AdminDAO;
 import com.capg.BookStoreManagement.dao.AdminDAOImpl;
 

@@ -2,7 +2,6 @@ package com.capg.BookStoreManagement.ui;
 
 import java.sql.Date;
 import java.sql.Time;
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.Collections;
 import java.util.List;
@@ -24,7 +23,6 @@ import com.capg.BookStoreManagement.sortings.*;
 public class BookStoreManagementApp {
 	Scanner sc=new Scanner(System.in);
 	static Scanner scr=new Scanner(System.in);
-	//Scanner s=new Scanner(System.in);
 	AdminDAOImpl adminobj=new AdminDAOImpl();
 	AdminServiceImpl asi=new AdminServiceImpl();
 	UserServiceImpl usi=new UserServiceImpl();
@@ -78,7 +76,6 @@ public class BookStoreManagementApp {
 				   System.out.println("1. Sign In");
 				   System.out.println("2. Sign Up");
 				   System.out.println("Enter your choice:");
-				   Scanner s=new Scanner(System.in);
 				   boolean status;
 				   UserServiceImpl usi=new UserServiceImpl();
 				   int ch=sc.nextInt();
