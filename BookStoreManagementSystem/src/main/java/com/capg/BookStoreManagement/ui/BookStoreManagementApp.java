@@ -461,7 +461,6 @@ public class BookStoreManagementApp {
 			 List<Book> books=asi.getBooks();
 			 switch(ch4) {
 			 case 1:
-				 
 				 System.out.println("Displaying Books by Isbn");
 				 SortByBookIsbn IsbnCompare = new SortByBookIsbn();
 				 Collections.sort(books, IsbnCompare);
